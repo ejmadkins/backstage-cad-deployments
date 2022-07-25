@@ -1,0 +1,26 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /tenant-901
+  name: tenant-901
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: kpt.dev|Kptfile|default|tenant-901
+upstream:
+  type: git
+  git:
+    repo: https://github.com/ejmadkins/backstage-cad-blueprints.git
+    directory: namespace
+    ref: namespace/v2
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/ejmadkins/backstage-cad-blueprints.git
+    directory: namespace
+    ref: namespace/v2
+    commit: 5d5b1c51ea786120abcbde64ffbc7a5f4b6912ed
+info:
+  description: Creates a new Tenant Namespace
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/set-namespace:v0.4.1
+    configPath: package-context.yaml
