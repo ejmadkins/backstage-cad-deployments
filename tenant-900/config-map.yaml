@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: interesting-data
-  namespace: tenant-900
-data:
-  some: value
