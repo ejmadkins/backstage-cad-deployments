@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ResourceQuota
-metadata:
-  name: base
-  namespace: example
-spec:
-  hard:
-    requests.memory: "40"
-    limits.memory: 40G
